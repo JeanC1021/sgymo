@@ -3,10 +3,11 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { GymsModule } from './gyms/gyms.module';
+import { Gym } from './gyms/entities/gym.entity';
 
 @Module({
   imports: [
-    UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -14,9 +15,11 @@ import { AuthModule } from './auth/auth.module';
       username: 'root',
       password: '123456789d*',
       database: 'sgym',
-      entities: [User],
+      entities: [User, Gym],
       synchronize: true,
     }),
-    AuthModule,],
+    UserModule,
+    AuthModule,
+    GymsModule,],
 })
 export class AppModule { }
