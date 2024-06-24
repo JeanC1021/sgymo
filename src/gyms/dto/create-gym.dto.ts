@@ -1,7 +1,12 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class CreateGymDto {
-    @IsString()
     @IsNotEmpty()
     nit: string;
+
+    @IsNotEmpty()
+    gym: string;
+
+    @IsNotEmpty()
+    owner: string;
 }

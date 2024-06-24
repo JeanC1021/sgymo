@@ -1,25 +1,33 @@
 import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { GymsModule } from './gyms/gyms.module';
-import { Gym } from './gyms/entities/gym.entity';
+import { ConfigModule } from '@nestjs/config';
+import { PermissionsModule } from './permissions/permissions.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '123456789d*',
-      database: 'sgym',
-      entities: [User, Gym],
-      synchronize: true,
+    ConfigModule.forRoot({
+      envFilePath: '.develop.env',
     }),
+    TypeOrmModule.
+      forRoot({
+        type: 'mysql',
+        host: process.env.DB_HOST,
+        port: 3306,
+        username: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+        entities: [`${__dirname}/**/*.entity{.ts,.js}`],
+        synchronize: true,
+      }),
     UserModule,
     AuthModule,
-    GymsModule,],
+    GymsModule,
+    PermissionsModule,
+    ProfileModule,
+  ],
 })
 export class AppModule { }
