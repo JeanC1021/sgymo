@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
-import { GymsModule } from './gyms/gyms.module';
+import { GymsModule } from './modules/gyms.module';
 import { ConfigModule } from '@nestjs/config';
-import { PermissionsModule } from './permissions/permissions.module';
-import { ProfileModule } from './profile/profile.module';
+import { ProfileModule } from './modules/profile.module';
 
 @Module({
   imports: [
@@ -26,7 +25,6 @@ import { ProfileModule } from './profile/profile.module';
     UserModule,
     AuthModule,
     GymsModule,
-    PermissionsModule,
     ProfileModule,
   ],
 })

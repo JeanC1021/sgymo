@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { GymsService } from './gyms.service';
-import { CreateGymDto } from './dto/create-gym.dto';
-import { UpdateGymDto } from './dto/update-gym.dto';
+import { UpdateGymDto } from '../dto/gym/update-gym.dto';
+import { CreateGymDto } from 'src/dto/gym/create-gym.dto';
+import { GymsService } from 'src/services/gyms.service';
 
 @Controller('gyms')
 export class GymsController {

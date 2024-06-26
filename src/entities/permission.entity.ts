@@ -1,12 +1,12 @@
-import { User } from "src/user/entities/user.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity()
 export class Permissions {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false, length: 50})
     name: string;
 
     @ManyToOne(() => User, (user) => user.permission)
