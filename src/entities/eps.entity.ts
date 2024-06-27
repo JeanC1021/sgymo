@@ -6,7 +6,7 @@ export class Eps {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false, length: 50})
     eps: string;
 
     @OneToMany(() => Profile, (profile) => profile.eps)

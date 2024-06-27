@@ -1,6 +1,7 @@
 import { DocumentType } from "src/entities/document-type.entity";
 import { Eps } from "src/entities/eps.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Img } from "./img.entity";
 
 @Entity()
 export class Profile {
@@ -37,6 +38,10 @@ export class Profile {
 
     @ManyToOne(() => Eps, (eps) => eps.profile)
     eps: Eps;
+
+    @OneToMany(()=> Img, (image) => image.profile)
+    img: Img;
+
 
 
 
