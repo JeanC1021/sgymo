@@ -1,4 +1,4 @@
-import { DocumentType } from "src/entities/document-type.entity";
+import { DocumentType } from "src/entities/documentType.entity";
 import { Eps } from "src/entities/eps.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Img } from "./img.entity";

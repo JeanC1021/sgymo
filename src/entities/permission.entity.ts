@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./user.entity";
 
 @Entity()
-export class Permissions {
+export class Permission {
     @PrimaryGeneratedColumn()
     id: number;
 

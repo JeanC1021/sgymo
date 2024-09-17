@@ -10,7 +10,7 @@ export class DocumentType {
     aliases: string;
 
     @Column({type: 'varchar', nullable: false, length: 50})
-    type: string
+    type: string;
 
     @OneToMany(() => Profile, (profile) => profile.documentType)
     profile: Profile;

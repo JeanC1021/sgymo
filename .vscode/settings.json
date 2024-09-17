@@ -1,4 +1,7 @@
 {
     "material-icon-theme.activeIconPack": "nest",
-    "terminal.integrated.initialHint": true
+    "terminal.integrated.initialHint": true,
+    "cSpell.words": [
+        "typeorm"
+    ]
 }
